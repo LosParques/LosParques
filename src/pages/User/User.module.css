@@ -1,0 +1,64 @@
+/* Encapsulado al contenedor del User; nada global (sin body/html aquí). */
+.userContainer {
+  /* variables locales */
+  --grad-1: #ff6b6b;
+  --grad-2: #f7d794;
+  --grad-3: #1dd1a1;
+  --grad-4: #48dbfb;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Fondo degradado animado SOLO aquí */
+  background: linear-gradient(-45deg, var(--grad-1), var(--grad-2), var(--grad-3), var(--grad-4));
+  background-size: 400% 400%;
+  animation: userGradientBG 12s ease infinite;
+}
+
+@keyframes userGradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.userTitle {
+  font-size: clamp(32px, 8vw, 80px);
+  color: #fff;
+  text-shadow: 0 0 15px rgba(0,0,0,0.4);
+  animation: userPulse 2s infinite;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin: 0;
+}
+
+.userSubtitle {
+  font-size: clamp(16px, 4vw, 24px);
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0,0,0,0.3);
+  margin-top: 20px;
+  text-align: center;
+}
+
+@keyframes userPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+.userLogoutBtn {
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.userLogoutBtn:hover { background: #fff; color: #333; }
