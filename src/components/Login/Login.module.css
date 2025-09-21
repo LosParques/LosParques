@@ -1,0 +1,130 @@
+/*
+  VARIABLES:
+  Puedes mantenerlas en :root en un archivo global (como index.css)
+  o moverlas aquí si solo las usas en este componente.
+*/
+:root {
+  --bg: #e0d6b9;
+  --card: #f5f5dc;
+  --green: #2e7d32;
+  --blue: #1766c1;
+  --blue-2: #548ecf;
+  --border: #bcc4ac;
+  --text: #222;
+}
+
+/* Contenedor principal de la página de login */
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+}
+
+/* La tarjeta/panel del formulario */
+.card {
+  width: min(520px, 90vw);
+  background: var(--card);
+  border-radius: 28px;
+  padding: clamp(20px, 6vw, 48px);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .08) inset;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.title {
+  margin: 0 0 28px;
+  text-align: center;
+  color: var(--green);
+  font-weight: 400;
+  line-height: 1.2;
+  font-size: clamp(22px, 3.4vw, 36px);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.field {
+  margin: 18px 0 22px;
+}
+
+.label {
+  display: block;
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.input {
+  width: 100%;
+  height: 48px;
+  padding: 10px 12px;
+  font-size: 18px;
+  color: var(--text);
+  background: transparent;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  box-sizing: border-box; /* Para que el padding no afecte el ancho total */
+}
+
+.input:focus {
+  border-color: var(--blue-2);
+  box-shadow: 0 0 0 3px rgba(23, 102, 193, .15);
+}
+
+/* Contenedor especial para el input de contraseña y el botón del ojo */
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Hacemos espacio a la derecha del input para que no se solape con el botón */
+.passwordWrapper .input {
+  padding-right: 45px;
+}
+
+/* Botón para mostrar/ocultar contraseña */
+.togglePass {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem; /* Un poco más grande para mejor clic */
+  color: #666;
+  padding: 4px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.button {
+  background: var(--blue);
+  color: #fff;
+  border: 0;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform .05s ease, filter .2s ease, background .2s ease;
+}
+
+.button:hover { filter: brightness(1.05); }
+.button:active { transform: translateY(1px); }
+
+/* Estilo para el mensaje de error */
+.error {
+  color: #c62828; /* Rojo oscuro para errores */
+  text-align: center;
+  margin-top: 6px;
+  font-size: 0.95rem;
+}

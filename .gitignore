@@ -1,3 +1,15 @@
+# Dependencias
+node_modules/
+
+# Builds
+dist/
+dist-ssr/
+
+# Archivos de entorno (tokens, claves, configuraciones locales)
+.env
+.env.local
+.env.*.local
+
 # Logs
 logs
 *.log
@@ -7,16 +19,16 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
+# Configuración de editores
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
+
+# Archivos de sistema
 .DS_Store
+Thumbs.db
+
+# Otros temporales
 *.suo
 *.ntvs*
 *.njsproj
