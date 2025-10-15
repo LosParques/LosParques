@@ -26,21 +26,29 @@ Antes de ejecutar el proyecto, asegúrese de tener instalado lo siguiente:
 
 ### Steps to get started
 
-1. **Clonar el repositorio**:
+1. **Backend**
+El primer paso es muy importante ya que antes de empezar a probar la funcionanlidad del front, es necesario clonar el repositorio del backend y seguir las instrucciones del readme, una vez que se asuguro de que el backend funciona en su computadora ahora si puede continuar con el siguiente paso en caso contrario verificar el repositorio y contacte con los desarrolladores encargados del backend,
+- [ParquesApi](https://github.com/LosParques/parques-api.git)
+
+2. **Clonar el repositorio**:
 ```bash
-git clone 
-cd parques-api
+git clone https://github.com/LosParques/LosParques.git
+cd LosParques
 ```
 
-3. 
+3. **Instalacion de dependencias**
+```bash
+npm install
+```
+
 4. 
-5. 2
+5. 
 6. 2
 7. 2
 8. 2
 9. 2
-10. 22
-11. 2
+10. 2
+11. 22
 12. 2
 13. 2
 14. 2
@@ -50,12 +58,13 @@ cd parques-api
 18. 2
 19. 2
 20. 2
+21. 2
 
-21. 22
+22. 22
 
-22. 2
 23. 2
 24. 2
-25. 22
-26. 2
+25. 2
+26. 22
 27. 2
+28. 2
