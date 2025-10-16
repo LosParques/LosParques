@@ -1,10 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { getUser } from "../../auth";
 import styles from "./Director.module.css";
 
 export default function WelcomeDirector() {
   const nav = useNavigate();
-  const u = getUser();
 
   function handleLogout() {
     localStorage.removeItem("token");
@@ -12,9 +10,18 @@ export default function WelcomeDirector() {
     nav("/login", { replace: true });
   }
 
+  // Datos de ejemplo para la lista
+  const directoresCerca = [
+    { id: 1, nombre: "Laura Gómez",   subt: "Parque ecológico", avatar: "https://i.pravatar.cc/96?img=47" },
+    { id: 2, nombre: "Carlos Pérez",  subt: "Parque ecológico", avatar: "https://i.pravatar.cc/96?img=52" },
+    { id: 3, nombre: "Miguel Torres", subt: "Parque ecológico", avatar: "https://i.pravatar.cc/96?img=15" },
+    { id: 4, nombre: "Ana Gutiérrez", subt: "Parque ecológico", avatar: "https://i.pravatar.cc/96?img=32" },
+    { id: 5, nombre: "Juan Medina",   subt: "Parque ecológico", avatar: "https://i.pravatar.cc/96?img=68" },
+  ];
+
   return (
     <div className={`${styles.directorContainer} ${styles.withTopBar}`}>
-      {/* NAVBAR fijo arriba */}
+      {/* NAVBAR */}
       <nav className={styles.navBar}>
         <div className={styles.navBrand}>Directores de Parques</div>
         <div className={styles.navLinks}>
@@ -34,17 +41,30 @@ export default function WelcomeDirector() {
         </div>
       </nav>
 
-      {/* Para no tapar el contenido con el navbar fijo */}
       <div className={styles.navSpacer} />
 
-      {/* Cuerpo (por ahora solo info de sesión; el resto viene en los siguientes commits) */}
-      <div className={styles.pageBody}>
-        {u && (
-          <p className={styles.directorSubtitle}>
-            Sesión iniciada como <strong>{u.username}</strong> ({u.role})
-          </p>
-        )}
-        {/* Aquí añadiremos: mapa + directores + galería */}
+      {/* ===== LAYOUT COMMIT 2 ===== */}
+      <div className={styles.pageGrid}>
+        {/* Mapa placeholder */}
+        <section className={`${styles.panel} ${styles.mapBox}`}>
+          <div className={styles.mapPlaceholder} />
+        </section>
+
+        {/* Directores cerca de ti */}
+        <aside className={styles.panel}>
+          <div className={styles.sidebarTitle}>Directores cerca de ti</div>
+          <div className={styles.directoresList}>
+            {directoresCerca.map((d) => (
+              <div className={styles.dirItem} key={d.id}>
+                <img className={styles.dirAvatar} src={d.avatar} alt={d.nombre} />
+                <div>
+                  <h4 className={styles.dirName}>{d.nombre}</h4>
+                  <p className={styles.dirSub}>{d.subt}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </aside>
       </div>
     </div>
   );

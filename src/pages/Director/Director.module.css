@@ -1,20 +1,17 @@
-/* ========== (EXISTENTE) ========== */
-/* Encapsular todo al contenedor del Director (nombres únicos para evitar choques) */
+/* ========== ESTILOS ORIGINALES (no se borran) ========== */
 .directorContainer {
-  /* variables locales (solo viven dentro del contenedor gracias a CSS cascade) */
   --grad-1: #ff6b6b;
   --grad-2: #f7d794;
   --grad-3: #1dd1a1;
   --grad-4: #48dbfb;
 
-  min-height: 100vh;            /* cubre toda la pantalla */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-  /* Fondo degradado animado SOLO aquí (no en body) */
   background: linear-gradient(-45deg, var(--grad-1), var(--grad-2), var(--grad-3), var(--grad-4));
   background-size: 400% 400%;
   animation: directorGradientBG 12s ease infinite;
@@ -61,26 +58,21 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .directorLogoutBtn:hover { background: #fff; color: #333; }
 
-/* ========== (AGREGADOS, SIN BORRAR NADA) ========== */
-/* Para que el contenido no se centre verticalmente cuando hay navbar arriba */
+/* ========== AGREGADOS (navbar y layout) ========== */
 .withTopBar {
   justify-content: flex-start;
   align-items: stretch;
 }
 
-/* NAVBAR fijo superior */
 .navBar {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: 56px;
   z-index: 1000;
   width: 100%;
-  background: #cfe3b1;          /* verde suave del mock */
+  background: #cfe3b1;
   border-bottom: 1px solid rgba(0,0,0,.08);
   padding: 10px 18px;
   box-sizing: border-box;
@@ -88,19 +80,12 @@
   align-items: center;
   justify-content: space-between;
 }
-
 .navBrand {
   font-weight: 700;
   font-size: 18px;
   color: #2e7d32;
 }
-
-.navLinks {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
+.navLinks { display: flex; align-items: center; gap: 24px; }
 .navLink {
   color: #2e2e2e;
   font-weight: 600;
@@ -110,11 +95,75 @@
   border-radius: 8px;
 }
 .navLink:hover { background: rgba(0,0,0,.06); }
-
 .navUser { font-size: 20px; line-height: 1; opacity: .9; }
 
-/* Espaciador para que el contenido no quede oculto por el navbar fijo */
 .navSpacer { height: 56px; }
-
-/* Contenedor del cuerpo de la página */
 .pageBody { width: 100%; padding: 16px; box-sizing: border-box; }
+
+/* ====== LAYOUT COMMIT 2 ====== */
+.pageGrid {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 20px 24px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 360px;
+}
+.panel {
+  background: #ded6c3;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+/* Mapa */
+.mapBox {
+  height: 420px;
+  border-radius: 10px;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.mapPlaceholder {
+  width: 86%;
+  max-width: 720px;
+  aspect-ratio: 4 / 3;
+  background: #2e2e2e;
+  border-radius: 6px;
+}
+
+/* Sidebar */
+.sidebarTitle {
+  display: inline-block;
+  background: #5aa9f0;
+  color: #0f172a;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+.directoresList { display: grid; gap: 12px; }
+.dirItem {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 10px;
+  align-items: center;
+  background: rgba(255,255,255,.8);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 10px;
+  padding: 10px;
+}
+.dirAvatar {
+  width: 48px; height: 48px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid rgba(0,0,0,.08);
+}
+.dirName { margin: 0; font-weight: 700; color: #1f2937; }
+.dirSub { margin: 2px 0 0; font-size: 12px; color: #4b5563; }
+
+@media (max-width: 960px) {
+  .pageGrid { grid-template-columns: 1fr; }
+  .mapBox { height: 360px; }
+}
