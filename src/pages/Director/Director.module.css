@@ -1,3 +1,4 @@
+/* ========== (EXISTENTE) ========== */
 /* Encapsular todo al contenedor del Director (nombres únicos para evitar choques) */
 .directorContainer {
   /* variables locales (solo viven dentro del contenedor gracias a CSS cascade) */
@@ -62,3 +63,58 @@
 }
 
 .directorLogoutBtn:hover { background: #fff; color: #333; }
+
+/* ========== (AGREGADOS, SIN BORRAR NADA) ========== */
+/* Para que el contenido no se centre verticalmente cuando hay navbar arriba */
+.withTopBar {
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+/* NAVBAR fijo superior */
+.navBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  z-index: 1000;
+  width: 100%;
+  background: #cfe3b1;          /* verde suave del mock */
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  padding: 10px 18px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navBrand {
+  font-weight: 700;
+  font-size: 18px;
+  color: #2e7d32;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navLink {
+  color: #2e2e2e;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+.navLink:hover { background: rgba(0,0,0,.06); }
+
+.navUser { font-size: 20px; line-height: 1; opacity: .9; }
+
+/* Espaciador para que el contenido no quede oculto por el navbar fijo */
+.navSpacer { height: 56px; }
+
+/* Contenedor del cuerpo de la página */
+.pageBody { width: 100%; padding: 16px; box-sizing: border-box; }
