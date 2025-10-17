@@ -41,7 +41,13 @@ cd LosParques
 npm install
 ```
 
-4. 
+4. **Set up environment variables**:
+
+Create a `.env` file in the root directory with the following variables:
+
+```bash
+VITE_API_URL=http://localhost:3000
+```
 5. 
 6. 2
 7. 2
