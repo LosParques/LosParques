@@ -61,31 +61,16 @@
 .directorLogoutBtn:hover { background: #fff; color: #333; }
 
 /* ========== AGREGADOS (navbar y layout) ========== */
-.withTopBar {
-  justify-content: flex-start;
-  align-items: stretch;
-}
+.withTopBar { justify-content: flex-start; align-items: stretch; }
 
 .navBar {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 56px;
-  z-index: 1000;
-  width: 100%;
-  background: #cfe3b1;
-  border-bottom: 1px solid rgba(0,0,0,.08);
-  padding: 10px 18px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  position: fixed; top: 0; left: 0; right: 0; height: 56px; z-index: 1000; width: 100%;
+  background: #cfe3b1; border-bottom: 1px solid rgba(0,0,0,.08);
+  padding: 10px 18px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between;
 }
 .navBrand { font-weight: 700; font-size: 18px; color: #2e7d32; }
 .navLinks { display: flex; align-items: center; gap: 24px; }
-.navLink {
-  color: #2e2e2e; font-weight: 600; text-decoration: none;
-  cursor: pointer; padding: 6px 8px; border-radius: 8px;
-}
+.navLink { color: #2e2e2e; font-weight: 600; text-decoration: none; cursor: pointer; padding: 6px 8px; border-radius: 8px; }
 .navLink:hover { background: rgba(0,0,0,.06); }
 .navUser { font-size: 20px; line-height: 1; opacity: .9; }
 
@@ -117,6 +102,10 @@
   place-items: center;
   overflow: hidden;
 }
+
+/* NUEVO: el contenedor real del mapa Leaflet */
+.mapLeaflet { height: 100%; width: 100%; }
+
 .mapPlaceholder {
   width: 86%;
   max-width: 720px;
@@ -127,13 +116,8 @@
 
 /* Sidebar */
 .sidebarTitle {
-  display: inline-block;
-  background: #5aa9f0;
-  color: #0f172a;
-  font-weight: 700;
-  padding: 8px 14px;
-  border-radius: 10px;
-  margin-bottom: 12px;
+  display: inline-block; background: #5aa9f0; color: #0f172a; font-weight: 700;
+  padding: 8px 14px; border-radius: 10px; margin-bottom: 12px;
 }
 .directoresList { display: grid; gap: 12px; }
 .dirItem {
@@ -145,80 +129,31 @@
 .dirName { margin: 0; font-weight: 700; color: #1f2937; }
 .dirSub { margin: 2px 0 0; font-size: 12px; color: #4b5563; }
 
-/* ====== SECCIÓN + GALERÍA (Commit 3) ====== */
-.section {
-  margin-top: 24px;
-  background: #ded6c3;
-  border-radius: 12px;
-  padding: 16px;
-}
+/* ====== SECCIÓN + GALERÍA ====== */
+.section { margin-top: 24px; background: #ded6c3; border-radius: 12px; padding: 16px; }
 .sectionTitle {
-  display: inline-block;
-  background: #5aa9f0;
-  color: #0f172a;
-  font-weight: 700;
-  padding: 8px 14px;
-  border-radius: 10px;
-  margin-bottom: 16px;
+  display: inline-block; background: #5aa9f0; color: #0f172a; font-weight: 700;
+  padding: 8px 14px; border-radius: 10px; margin-bottom: 16px;
 }
-
-.gallery {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-}
+.gallery { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 10px; }
 .galleryItem {
-  position: relative;            /* necesario para la tarjeta flotante */
-  flex: 0 0 auto;
-  width: 220px;
-  height: 150px;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 2px solid rgba(0,0,0,.1);
-  background: #fff;
-  cursor: default;
+  position: relative; flex: 0 0 auto; width: 220px; height: 150px; border-radius: 10px; overflow: hidden;
+  border: 2px solid rgba(0,0,0,.1); background: #fff; cursor: default;
 }
-.galleryItem img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.galleryItem img { width: 100%; height: 100%; object-fit: cover; }
 
-/* --- Tarjeta al pasar el mouse --- */
+/* Hover card */
 .hoverCard {
-  position: absolute;
-  left: 50%;
-  bottom: calc(100% + 8px);
-  transform: translateX(-50%) translateY(6px);
-  width: 280px;
-  background: #ffffff;
-  color: #1f2937;
-  border: 1px solid rgba(0,0,0,.12);
-  border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.18);
-  padding: 12px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .2s ease, transform .2s ease;
-  z-index: 10;
+  position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%) translateY(6px);
+  width: 280px; background: #fff; color: #1f2937; border: 1px solid rgba(0,0,0,.12);
+  border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,.18); padding: 12px; opacity: 0;
+  pointer-events: none; transition: opacity .2s ease, transform .2s ease; z-index: 10;
 }
-.galleryItem:hover .hoverCard {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
+.galleryItem:hover .hoverCard { opacity: 1; transform: translateX(-50%) translateY(0); }
 .hoverCard::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -8px;
-  transform: translateX(-50%);
-  border-width: 8px 8px 0 8px;
-  border-style: solid;
-  border-color: #ffffff transparent transparent transparent;
+  content: ""; position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%);
+  border-width: 8px 8px 0 8px; border-style: solid; border-color: #ffffff transparent transparent transparent;
 }
-
-/* Detalles dentro de la tarjeta */
 .cardTitle { margin: 0 0 6px; font-weight: 800; font-size: 14px; color: #111827; }
 .cardRow { display: flex; gap: 6px; font-size: 12px; margin: 2px 0; }
 .cardKey { color: #6b7280; min-width: 78px; }
@@ -228,4 +163,11 @@
 @media (max-width: 960px) {
   .pageGrid { grid-template-columns: 1fr; }
   .mapBox { height: 360px; }
+}
+
+/* ========== ESTILOS LEAFLET ========== */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
 }
