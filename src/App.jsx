@@ -6,29 +6,39 @@ import User from "./pages/User/User";
 import Admin from "./pages/Admin/Admin";
 import Director from "./pages/Director/Director";
 
+// 🔹 NUEVO: página en blanco temporal para Parques
+import Parques from "./pages/Parques/Parques";
+
 export default function App() {
   return (
     <Routes>
-      {/* /login */}
+      {/* /login por defecto */}
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="*" element={<Navigate to="/login" replace />} />
 
       <Route path="/login" element={<Login />} />
 
+      {/* Rutas protegidas */}
       <Route element={<Protected />}>
         <Route element={<RoleGuard allow={['User']} />}>
           <Route path="/user" element={<User />} />
         </Route>
+
         <Route element={<RoleGuard allow={['Admin']} />}>
           <Route path="/admin" element={<Admin />} />
         </Route>
+
+        {/* 🔹 Rutas solo para Director */}
         <Route element={<RoleGuard allow={['Director']} />}>
           <Route path="/director" element={<Director />} />
+          {/* 🔹 NUEVO: Parques (pantalla en blanco provisional) */}
+          <Route path="/parques" element={<Parques />} />
         </Route>
       </Route>
     </Routes>
   );
 }
+
 
 
 
