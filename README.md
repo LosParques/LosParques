@@ -1,12 +1,37 @@
-# React + Vite
+# Parques Front
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositorio es del frontend del proyecto de "Parques", el cual está hecho con React + Vite.  
+Ahorita solo tiene un login ya realizado y contiene validaciones.  
+En este README vienen instrucciones para poder probar y conectar con el backend. 
 
-Currently, two official plugins are available:
+## Features
+- **Inicio de sesión**: Autentica a los usuarios con su nombre de usuario y contraseña. En caso de que no se encuentre, lanzará un error. 
+- **Roles**: Cada usuario tiene un rol diferente y verá su pantalla conforme a su rol. Es decir, un admin no ve lo mismo que un usuario "normal". 
+- **Mantenimiento**: Las páginas de los roles aún están en proceso, por lo que mostrarán una página en mantenimiento. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **React + Vite**
+- **PostgreSQL**
 
-## Expanding the ESLint configuration
+## Instalation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+Antes de ejecutar el proyecto, asegúrese de tener instalado lo siguiente:
+
+- [Node.js](https://nodejs.org/) (>= v16)
+- [Docker](https://www.docker.com/) (Para el backend)
+- [PostgreSQL](https://www.postgresql.org/) (via Docker en el backend)
+- [React](https://react.dev)
+- [Vite](https://vite.dev/guide/)
+
+### Steps to get started
+
+1. **Backend**  
+   Antes de empezar a probar la funcionalidad del frontend, es necesario clonar el repositorio del backend y seguir las instrucciones del README.  
+   Una vez que se asegure de que el backend funciona correctamente, puede continuar con el siguiente paso.  
+   - [Parques API](https://github.com/LosParques/parques-api.git)
+
+2. **Clonar el repositorio del frontend**
+   ```bash
+   git clone https://github.com/LosParques/LosParques.git
+   cd LosParques
