@@ -1,0 +1,41 @@
+name: CI (Frontend)
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build-test:
+    name: Install • Test • Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install (npm ci)
+        run: npm ci
+
+      - name: Test (npm test)
+        run: npm test --if-present
+        # --if-present evita fallo si aún no hay pruebas
+
+      - name: Build (Vite)
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: dist/
