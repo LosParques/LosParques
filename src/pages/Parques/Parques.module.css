@@ -1,4 +1,4 @@
-/* Basado en el estilo de Director, mismo fondo animado */
+/* ========== CONTENEDOR PRINCIPAL ========== */
 .parquesContainer {
   --grad-1: #ff6b6b;
   --grad-2: #f7d794;
@@ -8,46 +8,223 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
   background: linear-gradient(-45deg, var(--grad-1), var(--grad-2), var(--grad-3), var(--grad-4));
   background-size: 400% 400%;
-  animation: parquesGradientBG 12s ease infinite;
+  animation: directorGradientBG 12s ease infinite;
 }
 
-@keyframes parquesGradientBG {
+@keyframes directorGradientBG {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-.parquesTitle {
-  font-size: clamp(32px, 8vw, 72px);
-  color: #fff;
-  text-shadow: 0 0 15px rgba(0,0,0,0.4);
+.withTopBar { justify-content: flex-start; align-items: stretch; }
+
+/* ========== NAVBAR (Coherente con Director) ========== */
+.navBar {
+  position: fixed; top: 0; left: 0; right: 0; height: 56px; z-index: 1000; width: 100%;
+  background: #cfe3b1; border-bottom: 1px solid rgba(0,0,0,.08);
+  padding: 10px 18px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between;
+}
+.navBrand { font-weight: 700; font-size: 18px; color: #2e7d32; }
+.navLinks { display: flex; align-items: center; gap: 24px; }
+.navLink { 
+  color: #2e2e2e; 
+  font-weight: 600; 
+  text-decoration: none; 
+  cursor: pointer; 
+  padding: 6px 8px; 
+  border-radius: 8px; 
+  transition: all 0.3s ease;
+}
+.navLink:hover { background: rgba(0,0,0,.06); }
+.navLink.active { 
+  background: #5aa9f0; 
+  color: #0f172a;
+}
+.navUser { font-size: 20px; line-height: 1; opacity: .9; }
+
+.navSpacer { height: 56px; }
+
+/* ========== LAYOUT PRINCIPAL ========== */
+.pageGrid {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 20px 24px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 280px 1fr;
+  min-height: calc(100vh - 56px);
+}
+
+/* ========== PANELES ========== */
+.panel {
+  background: #ded6c3;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 12px;
+  padding: 16px;
+  height: fit-content;
+}
+
+.contentPanel {
+  background: #ded6c3;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+/* ========== SIDEBAR FILTROS ========== */
+.sidebarTitle {
+  display: inline-block; 
+  background: #5aa9f0; 
+  color: #0f172a; 
+  font-weight: 700;
+  padding: 8px 14px; 
+  border-radius: 10px; 
+  margin-bottom: 16px;
+}
+
+.filterBlock { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filterLabel { 
+  font-size: 14px; 
+  font-weight: 600; 
+  color: #1f2937;
+}
+
+.filterSelect {
+  width: 100%;
+  height: 36px;
+  border-radius: 8px;
+  border: 2px solid rgba(0,0,0,.15);
+  background: rgba(255,255,255,0.8);
+  padding: 0 10px;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.filterSelect:focus {
+  border-color: #5aa9f0;
+  background: rgba(255,255,255,0.95);
+}
+
+/* ========== CONTENIDO PRINCIPAL ========== */
+.sectionTitle {
+  display: inline-block; 
+  background: #5aa9f0; 
+  color: #0f172a; 
+  font-weight: 700;
+  padding: 8px 14px; 
+  border-radius: 10px; 
+  margin-bottom: 20px;
+}
+
+.parkList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ========== TARJETAS DE PARQUES ========== */
+.parkCard {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 20px;
+  align-items: start;
+  background: rgba(255,255,255,0.8);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.3s ease;
+}
+
+.parkCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.95);
+}
+
+.parkImage {
+  width: 260px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 3px solid #e6ffe6;
+}
+
+.parkInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.parkTitle {
+  font-weight: 700;
+  font-size: 18px;
+  color: #1f2937;
   margin: 0;
 }
 
-.parquesSubtitle {
-  font-size: clamp(16px, 4vw, 22px);
-  color: #fff;
-  text-shadow: 0 0 10px rgba(0,0,0,0.3);
-  margin-top: 20px;
-  text-align: center;
+.parkDescription {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.5;
+  margin: 0;
 }
 
-.backBtn {
-  margin-top: 30px;
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: bold;
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  border: 2px solid #fff;
+.parkButton {
+  align-self: flex-start;
+  padding: 8px 16px;
+  background: #5aa9f0;
+  color: #0f172a;
+  border: none;
   border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-family: inherit;
 }
-.backBtn:hover { background: #fff; color: #333; }
+
+.parkButton:hover {
+  background: #4a99e0;
+  transform: translateY(-1px);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 960px) {
+  .pageGrid { 
+    grid-template-columns: 1fr; 
+    padding: 12px;
+  }
+  
+  .parkCard {
+    grid-template-columns: 1fr;
+  }
+  
+  .parkImage {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    gap: 16px;
+  }
+  
+  .navLink {
+    font-size: 14px;
+    padding: 4px 6px;
+  }
+}
